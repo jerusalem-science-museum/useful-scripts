@@ -9,20 +9,13 @@ Typical PDF-to-DXF converters export everything in the file, including content y
 | Ignores **dash patterns**, so dashed and dash-dot lines become one long solid line | Breaks lines into real dash segments |
 | Drops or substitutes **live text** | Converts it to outlines from the font embedded in the PDF |
 
-## Files
-
-- `pdf2dxf.py`: the converter.
-- `render_dxf.py`: optional. Draws a DXF as a PNG so you can check the result without a CAD program.
-
 ## Requirements
 
 Python 3.8 or newer, then:
 
 ```
-pip install pikepdf fonttools matplotlib
+pip install pikepdf fonttools
 ```
-
-(`matplotlib` is only needed for `render_dxf.py`.)
 
 ## Usage
 
@@ -40,12 +33,6 @@ stats {'hidden_fills': 42, 'hidden_strokes': 27, 'clipped_pieces': 14} entities 
 
 - `hidden_fills` / `hidden_strokes`: invisible shapes and lines that were left out.
 - `clipped_pieces`: shapes that were trimmed to their clip region.
-
-Preview (optional):
-
-```
-python render_dxf.py output.dxf preview.png
-```
 
 ## Output
 
@@ -70,4 +57,3 @@ Filled areas are written as closed outlines, because DXF R12 cannot store solid 
 - Sorts objects into layers by line thickness and gray level, assuming CMYK colors. For other PDFs, adjust `layer_for()` in `pdf2dxf.py`.
 - Text is converted only when its font is embedded as TrueType (`FontFile2`). Other text is skipped.
 - Images, shadings and transparency are ignored.
-- `render_dxf.py` is set up for an A4 page. For other sizes, change the `set_xlim(0, 210)` / `set_ylim(0, 297)` values (mm).
