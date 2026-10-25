@@ -1,6 +1,6 @@
-# pdf2dxf: convert a PDF to a DXF that shows only what's visible
+# pdf2dxf: convert a PDF to a DXF that shows only what's visible (What you see is what you get WYSIWYG)
 
-Typical PDF-to-DXF converters export everything in the file, including content you never see on the page. This tool exports only what is actually visible:
+Typical PDF-to-DXF converters export everything in the file, including content you never see on the page. **This tool exports only what is actually visible:**
 
 | Problem with typical converters | What pdf2dxf does |
 |---|---|
